@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MM Consultores & Auditores, S.C.</title>
+    <meta name="description" content="MM Consultores & Auditores, S.C. Soluciones jurídicas, fiscales y corporativas.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#C9A24D',
+                        dark: '#111111',
+                        coffee: '#3B2A1F',
+                        lightbg: '#F6F5F3'
+                    },
+                    fontFamily: {
+                        'merriweather': ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+        }
+
+        .animate-on-scroll.visible {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes heroSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-entrance {
+            opacity: 0;
+            animation: heroSlideDown 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .hero-entrance-1 { animation-delay: 0.45s; }
+        .hero-entrance-2 { animation-delay: 0.55s; }
+        .hero-entrance-3 { animation-delay: 0.67s; }
+        .hero-entrance-4 { animation-delay: 0.79s; }
+        .hero-entrance-5 { animation-delay: 0.91s; }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(201, 162, 77, 0.2);
+        }
+
+        .bg-pattern {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(201, 162, 77, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 42, 31, 0.06) 0%, transparent 50%),
+                linear-gradient(30deg, rgba(201, 162, 77, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(201, 162, 77, 0.03) 87.5%, rgba(201, 162, 77, 0.03)),
+                linear-gradient(150deg, rgba(201, 162, 77, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(201, 162, 77, 0.03) 87.5%, rgba(201, 162, 77, 0.03));
+            background-size: 600px 600px, 800px 800px, 80px 140px, 80px 140px;
+            background-position: 0 0, 100% 100%, 0 0, 40px 70px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #C9A24D 0%, #A68541 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #C9A24D, transparent);
+            margin-top: 12px;
+        }
+
+        .lang-pill {
+            display: inline-flex;
+            border-radius: 9999px;
+            padding: 3px;
+            background: rgba(17, 24, 39, 0.9);
+            border: 1px solid rgba(201, 162, 77, 0.3);
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .lang-pill button {
+            padding: 6px 14px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .lang-pill button:first-child { border-radius: 9999px 0 0 9999px; }
+        .lang-pill button:last-child { border-radius: 0 9999px 9999px 0; }
+        .lang-pill button.active {
+            background: linear-gradient(135deg, #C9A24D 0%, #A68541 100%);
+            color: #111;
+        }
+        .lang-pill button:not(.active) {
+            color: #9ca3af;
+            background: transparent;
+        }
+        .lang-pill button:not(.active):hover {
+            color: #e5e7eb;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #C9A24D 0%, #A68541 100%);
+            color: #111;
+            box-shadow: 0 0 0 1px rgba(201, 162, 77, 0.3), 0 8px 24px rgba(201, 162, 77, 0.25);
+            transition: all 0.3s ease;
+        }
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 0 1px rgba(201, 162, 77, 0.4), 0 12px 32px rgba(201, 162, 77, 0.35);
+            color: #111;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .whatsapp-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Loader styles */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #111 50%, #1a1510 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+
+        .loader-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 30px;
+            animation: logoFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(201, 162, 77, 0.1);
+            border-top-color: #C9A24D;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loader-text {
+            margin-top: 20px;
+            color: #C9A24D;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            font-size: 18px;
+            animation: textPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes textPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="bg-black text-gray-200">
+
+    <!-- LOADER -->
+    <div class="loader-wrapper" id="loader">
+        <img src="logo.png" alt="MM Consultores" class="loader-logo brightness-0 invert">
+        <div class="loader-spinner"></div>
+        <p class="loader-text">Cargando...</p>
+    </div>
+
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="https://wa.me/52" target="_blank"
+        class="fixed bottom-6 right-6 bg-gold text-dark px-6 py-3 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 z-50 font-semibold whatsapp-pulse flex items-center gap-2">
+        <span class="iconify" data-icon="mdi:whatsapp" data-width="24"></span>
+        <span>WhatsApp</span>
+    </a>
+
+    <!-- HEADER -->
+    <header class="fixed w-full bg-black/95 backdrop-blur-sm border-b border-gray-800 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="MM Consultores" class="h-20 w-auto brightness-0 invert">
+                <span class="font-merriweather font-bold tracking-wide text-gold text-lg uppercase">
+                    MM Consultores & Auditores
+                </span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-wider font-medium text-gray-300">
+                <a href="#inicio" class="hover:text-gold transition-colors duration-300" data-i18n="nav.home">Inicio</a>
+                <a href="#acerca" class="hover:text-gold transition-colors duration-300" data-i18n="nav.about">Nosotros</a>
+                <a href="servicios.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav.services">Servicios</a>
+                <a href="#contacto" class="hover:text-gold transition-colors duration-300" data-i18n="nav.contact">Contacto</a>
+                <div class="lang-pill">
+                    <button type="button" id="lang-es" class="active" aria-label="Español">ES</button>
+                    <button type="button" id="lang-en" aria-label="English">EN</button>
+                </div>
+            </nav>
+            <div class="flex md:hidden items-center gap-3">
+                <div class="lang-pill">
+                    <button type="button" id="lang-es-mob" class="active" aria-label="Español">ES</button>
+                    <button type="button" id="lang-en-mob" aria-label="English">EN</button>
+                </div>
+                <button id="mobile-menu-btn" class="text-gold">
+                    <span class="iconify" data-icon="mdi:menu" data-width="28"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENÚ MÓVIL -->
+    <div id="mobile-menu" class="mobile-menu fixed right-0 top-0 h-full w-64 bg-dark text-white z-50 p-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-white">
+            <span class="iconify" data-icon="mdi:close" data-width="28"></span>
+        </button>
+        <div class="mt-12 mb-8">
+            <div class="lang-pill">
+                <button type="button" id="lang-es-menu" class="active" aria-label="Español">ES</button>
+                <button type="button" id="lang-en-menu" aria-label="English">EN</button>
+            </div>
+        </div>
+        <nav class="flex flex-col gap-6 text-sm uppercase tracking-wider">
+            <a href="#inicio" class="hover:text-gold transition-colors menu-link" data-i18n="nav.home">Inicio</a>
+            <a href="#acerca" class="hover:text-gold transition-colors menu-link" data-i18n="nav.about">Nosotros</a>
+            <a href="servicios.html" class="hover:text-gold transition-colors menu-link" data-i18n="nav.services">Servicios</a>
+            <a href="#contacto" class="hover:text-gold transition-colors menu-link" data-i18n="nav.contact">Contacto</a>
+        </nav>
+    </div>
+
+    <!-- HERO -->
+    <section id="inicio" class="min-h-screen flex flex-col justify-center pt-28 pb-32 bg-black relative overflow-hidden">
+        <!-- Imagen de fondo con transparencia -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30" style="background-image: url('fondo.jpg');"></div>
+        <!-- Overlay oscuro (mezcla imagen + negro) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/75"></div>
+        <!-- Efecto dorado (como antes) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gold/10 to-transparent"></div>
+        <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-coffee/20 rounded-full blur-[80px]"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <p class="hero-entrance hero-entrance-1 text-gold text-sm uppercase tracking-[0.3em] font-medium mb-6" data-i18n="hero.tagline">
+                Consultoría jurídica, fiscal y corporativa
+            </p>
+            <h1 class="hero-entrance hero-entrance-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-merriweather font-black leading-[1.1] text-white mb-8">
+                <span data-i18n="hero.line1">Problemas complejos,</span><br>
+                <span class="gradient-text" data-i18n="hero.line2">soluciones estratégicas</span>
+            </h1>
+            <p class="hero-entrance hero-entrance-3 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed" data-i18n="hero.subline">
+                Asesoría con enfoque estratégico y atención personalizada para empresas y familias.
+            </p>
+            <div class="hero-entrance hero-entrance-4 flex justify-center">
+                <a href="servicios.html" class="hero-cta">
+                    <span class="iconify" data-icon="mdi:view-grid-outline" data-width="22"></span>
+                    <span data-i18n="hero.cta">Ver los servicios</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-gold/50 to-transparent"></div>
+    </section>
+
+    <!-- ACERCA -->
+    <section id="acerca" class="py-32 bg-black relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-72 h-72 bg-gold/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-coffee/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-0 w-px h-48 bg-gradient-to-b from-transparent via-gold/30 to-transparent hidden lg:block"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Imagen -->
+                <div class="animate-on-scroll order-2 lg:order-1 relative">
+                    <div class="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                        <img src="fondo2.jpg" 
+                             alt="Oficina profesional MM Consultores" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    </div>
+                    <!-- Marco decorativo -->
+                    <div class="absolute -bottom-4 -right-4 w-48 h-48 border-2 border-gold/20 rounded-2xl -z-10 hidden lg:block"></div>
+                </div>
+
+                <!-- Texto -->
+                <div class="animate-on-scroll order-1 lg:order-2">
+                    <p class="text-gold text-xs uppercase tracking-[0.2em] font-semibold mb-3">Nuestro despacho</p>
+                    <h2 class="text-3xl md:text-4xl font-merriweather font-black mb-6 text-white uppercase">MM Consultores & Auditores, S.C.</h2>
+                    <div class="h-1 w-16 bg-gold/60 rounded-full mb-8"></div>
+                    <p class="text-gray-300 leading-relaxed text-lg text-justify hyphens-auto">
+                        Nuestra firma opera bajo un modelo de <span class="text-gold font-medium">sistemas integrales de solución</span>. No ofrecemos servicios aislados, 
+                        sino estructuras jurídicas, fiscales, contables, administrativas y patrimoniales interconectadas, 
+                        diseñadas para ordenar, proteger y construir con visión de largo plazo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISIÓN Y VISIÓN -->
+    <section class="py-32 bg-black relative overflow-hidden">
+        <div class="absolute top-0 left-1/3 w-96 h-96 bg-gold/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-coffee/10 rounded-full blur-[100px]"></div>
+
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16">
+                <!-- Misión -->
+                <div class="animate-on-scroll">
+                    <h3 class="text-gold text-sm uppercase tracking-[0.2em] font-semibold mb-6">Nuestra misión</h3>
+                    <div class="space-y-5 text-gray-300 leading-relaxed text-justify hyphens-auto">
+                        <p>
+                            Brindar soluciones jurídicas, fiscales, contables, empresariales y corporativas integrales, 
+                            construidas a partir del análisis profundo de cada caso, con el propósito de generar orden, 
+                            certeza, prevención y estabilidad patrimonial y empresarial.
+                        </p>
+                        <p>
+                            Nuestra misión no será resolver problemas aislados, sino diseñar estructuras jurídicas 
+                            y financieras que permitan a personas y empresas tomar decisiones informadas, seguras 
+                            y sostenibles, incluso en escenarios adversos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visión -->
+                <div class="animate-on-scroll">
+                    <h3 class="text-gold text-sm uppercase tracking-[0.2em] font-semibold mb-6">Nuestra visión</h3>
+                    <div class="space-y-5 text-gray-300 leading-relaxed text-justify hyphens-auto">
+                        <p>
+                            Consolidarnos como una firma referente en el ámbito jurídico fiscal y empresarial, 
+                            reconocida por su criterio estratégico, profundidad técnica y ética profesional, 
+                            sentando las bases para la creación y expansión de nuevos despachos bajo una misma 
+                            filosofía, dirección y estándar de excelencia.
+                        </p>
+                        <p>
+                            Nuestra visión trasciende el presente al crear una estructura institucional con 
+                            identidad propia, capaz de mantenerse, crecer y replicarse con coherencia, 
+                            legado y permanencia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-32 bg-black relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/10 to-transparent"></div>
+        </div>
+        <div class="absolute top-1/2 right-0 w-px h-64 bg-gradient-to-b from-transparent via-gold/10 to-transparent hidden lg:block"></div>
+        <div class="absolute top-1/3 left-0 w-px h-48 bg-gradient-to-b from-transparent via-gold/5 to-transparent hidden lg:block"></div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="mb-20 animate-on-scroll">
+                <p class="text-gold text-xs uppercase tracking-[0.25em] font-semibold mb-2">Qué hacemos</p>
+                <h2 class="text-4xl md:text-5xl font-merriweather font-black text-white mb-6">Cinco sistemas,<br><span class="text-gold">una solución integral</span></h2>
+                <p class="text-gray-400 text-lg max-w-xl leading-relaxed">
+                    Estructuras jurídicas, fiscales, contables y patrimoniales interconectadas.
+                </p>
+            </div>
+
+            <div class="space-y-0 divide-y divide-gray-800/80">
+                <a href="servicios.html#sistema-juridico" class="servicio-link animate-on-scroll group flex items-start md:items-center gap-6 py-8 md:py-10 transition-colors duration-300 hover:bg-gray-900/30 -mx-4 px-4 md:-mx-6 md:px-6 rounded-xl">
+                    <span class="text-5xl md:text-6xl font-black text-gold/30 group-hover:text-gold/60 transition-colors tabular-nums">01</span>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-merriweather font-bold text-xl md:text-2xl text-white group-hover:text-gold transition-colors mb-1">Sistema Jurídico–Patrimonial</h3>
+                        <p class="text-gray-500 text-sm md:text-base group-hover:text-gray-400 transition-colors">Protegemos personas, familias y patrimonios desde la raíz legal del conflicto.</p>
+                    </div>
+                    <span class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-700 group-hover:border-gold group-hover:bg-gold/10 flex items-center justify-center transition-all duration-300">
+                        <span class="iconify text-gray-500 group-hover:text-gold" data-icon="mdi:arrow-right" data-width="18"></span>
+                    </span>
+                </a>
+
+                <a href="servicios.html#sistema-fiscal" class="servicio-link animate-on-scroll group flex items-start md:items-center gap-6 py-8 md:py-10 transition-colors duration-300 hover:bg-gray-900/30 -mx-4 px-4 md:-mx-6 md:px-6 rounded-xl">
+                    <span class="text-5xl md:text-6xl font-black text-gold/30 group-hover:text-gold/60 transition-colors tabular-nums">02</span>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-merriweather font-bold text-xl md:text-2xl text-white group-hover:text-gold transition-colors mb-1">Sistema Fiscal–Contable–Administrativo</h3>
+                        <p class="text-gray-500 text-sm md:text-base group-hover:text-gray-400 transition-colors">La contabilidad y la fiscalidad como herramientas de control y prevención.</p>
+                    </div>
+                    <span class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-700 group-hover:border-gold group-hover:bg-gold/10 flex items-center justify-center transition-all duration-300">
+                        <span class="iconify text-gray-500 group-hover:text-gold" data-icon="mdi:arrow-right" data-width="18"></span>
+                    </span>
+                </a>
+
+                <a href="servicios.html#sistema-empresarial" class="servicio-link animate-on-scroll group flex items-start md:items-center gap-6 py-8 md:py-10 transition-colors duration-300 hover:bg-gray-900/30 -mx-4 px-4 md:-mx-6 md:px-6 rounded-xl">
+                    <span class="text-5xl md:text-6xl font-black text-gold/30 group-hover:text-gold/60 transition-colors tabular-nums">03</span>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-merriweather font-bold text-xl md:text-2xl text-white group-hover:text-gold transition-colors mb-1">Sistema Empresarial–Corporativo</h3>
+                        <p class="text-gray-500 text-sm md:text-base group-hover:text-gray-400 transition-colors">Empresas que crecen sin colapsar jurídicamente.</p>
+                    </div>
+                    <span class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-700 group-hover:border-gold group-hover:bg-gold/10 flex items-center justify-center transition-all duration-300">
+                        <span class="iconify text-gray-500 group-hover:text-gold" data-icon="mdi:arrow-right" data-width="18"></span>
+                    </span>
+                </a>
+
+                <a href="servicios.html#sistema-inmobiliario" class="servicio-link animate-on-scroll group flex items-start md:items-center gap-6 py-8 md:py-10 transition-colors duration-300 hover:bg-gray-900/30 -mx-4 px-4 md:-mx-6 md:px-6 rounded-xl">
+                    <span class="text-5xl md:text-6xl font-black text-gold/30 group-hover:text-gold/60 transition-colors tabular-nums">04</span>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-merriweather font-bold text-xl md:text-2xl text-white group-hover:text-gold transition-colors mb-1">Sistema Inmobiliario y de Desarrollo</h3>
+                        <p class="text-gray-500 text-sm md:text-base group-hover:text-gray-400 transition-colors">No vendemos inmuebles. Blindamos operaciones inmobiliarias.</p>
+                    </div>
+                    <span class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-700 group-hover:border-gold group-hover:bg-gold/10 flex items-center justify-center transition-all duration-300">
+                        <span class="iconify text-gray-500 group-hover:text-gold" data-icon="mdi:arrow-right" data-width="18"></span>
+                    </span>
+                </a>
+
+                <a href="servicios.html#sistema-defensa" class="servicio-link animate-on-scroll group flex items-start md:items-center gap-6 py-8 md:py-10 transition-colors duration-300 hover:bg-gray-900/30 -mx-4 px-4 md:-mx-6 md:px-6 rounded-xl">
+                    <span class="text-5xl md:text-6xl font-black text-gold/30 group-hover:text-gold/60 transition-colors tabular-nums">05</span>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-merriweather font-bold text-xl md:text-2xl text-white group-hover:text-gold transition-colors mb-1">Sistema de Defensa y Contención</h3>
+                        <p class="text-gray-500 text-sm md:text-base group-hover:text-gray-400 transition-colors">Cuando el conflicto existe, la estrategia marca la diferencia.</p>
+                    </div>
+                    <span class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-gray-700 group-hover:border-gold group-hover:bg-gold/10 flex items-center justify-center transition-all duration-300">
+                        <span class="iconify text-gray-500 group-hover:text-gold" data-icon="mdi:arrow-right" data-width="18"></span>
+                    </span>
+                </a>
+            </div>
+
+            <div class="mt-16 animate-on-scroll">
+                <a href="servicios.html" class="inline-flex items-center gap-3 text-gold font-medium group">
+                    <span>Ver todos los servicios</span>
+                    <span class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                        <span class="iconify text-gold" data-icon="mdi:arrow-right" data-width="18"></span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-32 relative bg-black overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+        </div>
+        <div class="absolute top-1/3 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/4 left-0 w-72 h-72 bg-coffee/10 rounded-full blur-[100px]"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <!-- Header -->
+            <div class="mb-12 animate-on-scroll">
+                <p class="text-gold text-xs uppercase tracking-[0.25em] font-semibold mb-3">Contacto</p>
+                <h2 class="text-4xl md:text-5xl font-merriweather font-black text-white mb-4">Hablemos de su caso</h2>
+                <p class="text-gray-400 max-w-xl">
+                    Estamos listos para atender sus necesidades legales y fiscales. Escríbanos o llame directamente.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 lg:gap-10 mb-12">
+                <!-- Columna 1: Contacto directo -->
+                <div class="animate-on-scroll space-y-6">
+                    <a href="https://wa.me/5213221201008" target="_blank"
+                        class="flex items-center gap-4 p-4 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 hover:bg-[#25D366]/20 transition-all duration-300 group">
+                        <span class="w-12 h-12 rounded-full bg-[#25D366]/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <span class="iconify text-[#25D366]" data-icon="mdi:whatsapp" data-width="24"></span>
+                        </span>
+                        <div>
+                            <p class="font-semibold text-white">WhatsApp</p>
+                            <p class="text-sm text-gray-400">Respuesta rápida</p>
+                        </div>
+                    </a>
+                    <a href="tel:3221201008" class="flex items-center gap-4 p-4 rounded-xl bg-gray-900/50 border border-gray-800/80 hover:border-gold/30 transition-all duration-300 group">
+                        <span class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-gold" data-icon="mdi:phone" data-width="22"></span>
+                        </span>
+                        <div>
+                            <p class="font-semibold text-white">322 120 1008</p>
+                            <p class="text-sm text-gray-400">Teléfono</p>
+                        </div>
+                    </a>
+                    <a href="mailto:mm.consultores@hotmail.com" class="flex items-center gap-4 p-4 rounded-xl bg-gray-900/50 border border-gray-800/80 hover:border-gold/30 transition-all duration-300 group">
+                        <span class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-gold" data-icon="mdi:email" data-width="22"></span>
+                        </span>
+                        <div>
+                            <p class="font-semibold text-white text-sm break-all">mm.consultores@hotmail.com</p>
+                            <p class="text-sm text-gray-400">Email</p>
+                        </div>
+                    </a>
+                    <div class="p-4 rounded-xl bg-gray-900/50 border border-gray-800/80">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="iconify text-gold" data-icon="mdi:clock-outline" data-width="20"></span>
+                            <p class="font-semibold text-white">Horario</p>
+                        </div>
+                        <p class="text-gray-400 text-sm">Lun–Vie 9:00 – 18:00</p>
+                        <p class="text-gray-400 text-sm">Sáb 9:00 – 14:00</p>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Formulario -->
+                <div class="animate-on-scroll">
+                    <div class="bg-gray-900/40 p-8 rounded-2xl border border-gray-800/80 backdrop-blur h-full">
+                        <h3 class="font-merriweather font-bold text-lg text-white mb-5">Envíenos un mensaje</h3>
+                        <form class="space-y-4">
+                            <input type="text" placeholder="Nombre completo"
+                                class="w-full border border-gray-700/80 bg-black/40 text-white px-4 py-3 rounded-lg focus:border-gold focus:ring-1 focus:ring-gold/30 focus:outline-none transition-all placeholder-gray-500 text-sm">
+                            <input type="text" placeholder="Email o WhatsApp"
+                                class="w-full border border-gray-700/80 bg-black/40 text-white px-4 py-3 rounded-lg focus:border-gold focus:ring-1 focus:ring-gold/30 focus:outline-none transition-all placeholder-gray-500 text-sm">
+                            <textarea placeholder="Mensaje" rows="4"
+                                class="w-full border border-gray-700/80 bg-black/40 text-white px-4 py-3 rounded-lg focus:border-gold focus:ring-1 focus:ring-gold/30 focus:outline-none transition-all resize-none placeholder-gray-500 text-sm"></textarea>
+                            <button type="submit"
+                                class="w-full bg-gold text-dark py-3 rounded-lg uppercase tracking-wider text-sm font-semibold hover:bg-gold/90 transition-all duration-300">
+                                Enviar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Columna 3: Mapa -->
+                <div class="animate-on-scroll lg:col-span-1">
+                    <div class="rounded-2xl overflow-hidden border border-gray-800/80 bg-gray-900/40 h-full min-h-[320px]">
+                        <div class="relative h-full min-h-[320px] group">
+                            <iframe
+                                src="https://maps.google.com/maps?q=20.7603597,-105.2290279&hl=es&z=17&output=embed"
+                                class="w-full h-full min-h-[320px] border-0 grayscale hover:grayscale-0 transition-all duration-500"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Ubicación MM Consultores"></iframe>
+                            <a href="https://maps.app.goo.gl/kLcsHUrP59XpQ8Aq6" target="_blank" rel="noopener noreferrer"
+                                class="absolute bottom-3 right-3 bg-gold text-dark px-3 py-2 rounded-lg text-xs font-semibold hover:bg-gold/90 transition-colors shadow-lg flex items-center gap-2">
+                                <span class="iconify" data-icon="mdi:open-in-new" data-width="14"></span>
+                                Abrir en Maps
+                            </a>
+                        </div>
+                    </div>
+                    <a href="https://maps.app.goo.gl/kLcsHUrP59XpQ8Aq6" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center justify-center gap-2 mt-3 text-gold text-sm font-medium hover:underline">
+                        <span class="iconify" data-icon="mdi:map-marker" data-width="18"></span>
+                        Ver ubicación completa
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gradient-to-br from-dark via-coffee to-dark text-gray-300">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Columna 1: Logo y descripción -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="logo.png" alt="MM Consultores" class="h-16 w-auto brightness-0 invert">
+                    </div>
+                    <h3 class="text-white font-merriweather font-bold text-xl mb-4 uppercase">MM Consultores & Auditores, S.C.
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Soluciones jurídicas, fiscales y corporativas con enfoque estratégico.
+                        Años de experiencia profesional respaldando el crecimiento de empresas y familias.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://wa.me/5213221201008" target="_blank"
+                            class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center hover:bg-gold transition-all duration-300 hover:scale-110">
+                            <span class="iconify text-gold hover:text-dark" data-icon="mdi:whatsapp"
+                                data-width="20"></span>
+                        </a>
+                        <a href="mailto:mm.consultores@hotmail.com"
+                            class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center hover:bg-gold transition-all duration-300 hover:scale-110">
+                            <span class="iconify text-gold hover:text-dark" data-icon="mdi:email"
+                                data-width="20"></span>
+                        </a>
+                        <a href="tel:3221201008"
+                            class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center hover:bg-gold transition-all duration-300 hover:scale-110">
+                            <span class="iconify text-gold hover:text-dark" data-icon="mdi:phone"
+                                data-width="20"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Navegación -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Navegación</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#inicio"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2">
+                                <span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span>
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#acerca"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2">
+                                <span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span>
+                                Nosotros
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2">
+                                <span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span>
+                                Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contacto"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2">
+                                <span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span>
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Contacto</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="iconify text-gold mt-1" data-icon="mdi:phone" data-width="20"></span>
+                            <div>
+                                <p class="text-sm text-gray-500">Teléfono</p>
+                                <a href="tel:3221201008" class="text-gray-300 hover:text-gold transition-colors">
+                                    322 120 1008
+                                </a>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="iconify text-gold mt-1" data-icon="mdi:email" data-width="20"></span>
+                            <div>
+                                <p class="text-sm text-gray-500">Email</p>
+                                <a href="mailto:mm.consultores@hotmail.com"
+                                    class="text-gray-300 hover:text-gold transition-colors break-all text-sm">
+                                    mm.consultores@hotmail.com
+                                </a>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="iconify text-gold mt-1" data-icon="mdi:map-marker" data-width="20"></span>
+                            <div>
+                                <p class="text-sm text-gray-500">Ubicación</p>
+                                <a href="https://www.google.com/maps/@20.7603597,-105.2290279,3a,60y,303.35h,85.1t/data=!3m7!1e1!3m5!1sO9D1dY-9i8fUUfbYXGHTKg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D4.900000000000006%26panoid%3DO9D1dY-9i8fUUfbYXGHTKg%26yaw%3D303.35!7i16384!8i8192!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+                                    target="_blank"
+                                    class="text-gray-300 hover:text-gold transition-colors flex items-center gap-1">
+                                    Ver en mapa
+                                    <span class="iconify" data-icon="mdi:open-in-new" data-width="14"></span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Separador -->
+            <div class="border-t border-gray-700 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-gray-500 text-center md:text-left">
+                        © 2026 MM Consultores & Auditores, S.C. · Todos los derechos reservados
+                    </p>
+                    <div class="flex items-center gap-6 text-sm text-gray-500">
+                        <a href="#" class="hover:text-gold transition-colors">Aviso de Privacidad</a>
+                        <span>|</span>
+                        <a href="#" class="hover:text-gold transition-colors">Términos y Condiciones</a>
+                    </div>
+                </div>
+                <div class="text-center mt-6 space-y-2">
+                    <p class="text-xs text-gray-600 italic">
+                        "Problemas complejos, soluciones estratégicas"
+                    </p>
+                    <p class="text-xs text-gray-600">
+                        © Página creada por <a href="https://solno.mx" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline transition-colors">grupo solno.mx</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loader (breve: 400ms + fade 0.2s; luego arranca animación hero)
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => loader.classList.add('hidden'), 400);
+        });
+
+        // Intersection Observer para animaciones
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Menú móvil
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const menuLinks = document.querySelectorAll('.menu-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // i18n
+        const t = {
+            es: {
+                'nav.home': 'Inicio',
+                'nav.about': 'Nosotros',
+                'nav.services': 'Servicios',
+                'nav.contact': 'Contacto',
+                'hero.tagline': 'Consultoría jurídica, fiscal y corporativa',
+                'hero.line1': 'Problemas complejos,',
+                'hero.line2': 'soluciones estratégicas',
+                'hero.subline': 'Asesoría con enfoque estratégico y atención personalizada para empresas y familias.',
+                'hero.cta': 'Ver los servicios'
+            },
+            en: {
+                'nav.home': 'Home',
+                'nav.about': 'About us',
+                'nav.services': 'Services',
+                'nav.contact': 'Contact',
+                'hero.tagline': 'Legal, tax and corporate consulting',
+                'hero.line1': 'Complex problems,',
+                'hero.line2': 'strategic solutions',
+                'hero.subline': 'Strategic consulting and personalized attention for businesses and families.',
+                'hero.cta': 'View services'
+            }
+        };
+
+        let lang = localStorage.getItem('mm-lang') || 'es';
+        document.documentElement.lang = lang;
+
+        function applyLang(l) {
+            lang = l;
+            localStorage.setItem('mm-lang', l);
+            document.documentElement.lang = l;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[l] && t[l][key]) el.textContent = t[l][key];
+            });
+            document.querySelectorAll('.lang-pill button').forEach(btn => {
+                const isEs = btn.id && (btn.id === 'lang-es' || btn.id === 'lang-es-mob' || btn.id === 'lang-es-menu');
+                const isEn = btn.id && (btn.id === 'lang-en' || btn.id === 'lang-en-mob' || btn.id === 'lang-en-menu');
+                btn.classList.toggle('active', (l === 'es' && isEs) || (l === 'en' && isEn));
+            });
+        }
+
+        applyLang(lang);
+
+        function onLangClick(l) {
+            applyLang(l);
+        }
+
+        document.getElementById('lang-es')?.addEventListener('click', () => onLangClick('es'));
+        document.getElementById('lang-en')?.addEventListener('click', () => onLangClick('en'));
+        document.getElementById('lang-es-mob')?.addEventListener('click', () => onLangClick('es'));
+        document.getElementById('lang-en-mob')?.addEventListener('click', () => onLangClick('en'));
+        document.getElementById('lang-es-menu')?.addEventListener('click', () => onLangClick('es'));
+        document.getElementById('lang-en-menu')?.addEventListener('click', () => onLangClick('en'));
+    </script>
+
+</body>
+
+</html>
