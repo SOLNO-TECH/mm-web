@@ -7,9 +7,9 @@
     <meta name="description" content="Sistemas integrales de MM Consultores & Auditores: Jurídico-Patrimonial, Fiscal-Contable-Administrativo, Empresarial-Corporativo, Inmobiliario y Defensa y Contención.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=2">
+    <link rel="apple-touch-icon" href="logo.png?v=2">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
@@ -103,16 +103,16 @@
     <header class="fixed w-full bg-black/95 backdrop-blur-sm border-b border-gray-800 z-40 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3">
-                <img src="logo.png" alt="MM Consultores" class="h-20 w-auto brightness-0 invert">
+                <img src="logo.png?v=2" alt="MM Consultores" class="h-20 w-auto">
                 <span class="font-merriweather font-bold tracking-wide text-gold text-lg uppercase">
                     MM Consultores & Auditores
                 </span>
             </a>
             <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-wider font-medium text-gray-300">
-                <a href="index.html" class="hover:text-gold transition-colors duration-300">Inicio</a>
-                <a href="index.html#acerca" class="hover:text-gold transition-colors duration-300">Nosotros</a>
-                <a href="servicios.html" class="text-gold">Servicios</a>
-                <a href="index.html#contacto" class="hover:text-gold transition-colors duration-300">Contacto</a>
+                <a href="index.html" class="hover:text-gold transition-colors duration-300"><span data-i18n="nav.home">Inicio</span></a>
+                <a href="index.html#acerca" class="hover:text-gold transition-colors duration-300"><span data-i18n="nav.about">Nosotros</span></a>
+                <a href="servicios.html" class="text-gold"><span data-i18n="nav.services">Servicios</span></a>
+                <a href="index.html#contacto" class="hover:text-gold transition-colors duration-300"><span data-i18n="nav.contact">Contacto</span></a>
                 <div class="lang-pill">
                     <button type="button" id="lang-es" class="active" aria-label="Español">ES</button>
                     <button type="button" id="lang-en" aria-label="English">EN</button>
@@ -141,10 +141,10 @@
             </div>
         </div>
         <nav class="flex flex-col gap-6 text-sm uppercase tracking-wider">
-            <a href="index.html" class="hover:text-gold transition-colors menu-link">Inicio</a>
-            <a href="index.html#acerca" class="hover:text-gold transition-colors menu-link">Nosotros</a>
-            <a href="servicios.html" class="text-gold menu-link">Servicios</a>
-            <a href="index.html#contacto" class="hover:text-gold transition-colors menu-link">Contacto</a>
+            <a href="index.html" class="hover:text-gold transition-colors menu-link"><span data-i18n="nav.home">Inicio</span></a>
+            <a href="index.html#acerca" class="hover:text-gold transition-colors menu-link"><span data-i18n="nav.about">Nosotros</span></a>
+            <a href="servicios.html" class="text-gold menu-link"><span data-i18n="nav.services">Servicios</span></a>
+            <a href="index.html#contacto" class="hover:text-gold transition-colors menu-link"><span data-i18n="nav.contact">Contacto</span></a>
         </nav>
     </div>
 
@@ -157,15 +157,21 @@
             <div class="absolute top-1/4 right-0 w-96 h-96 bg-gold/10 rounded-full blur-[120px]"></div>
             <div class="absolute bottom-1/4 left-0 w-80 h-80 bg-coffee/20 rounded-full blur-[100px]"></div>
 
-            <div class="max-w-4xl mx-auto px-6 relative z-10">
-                <div class="animate-on-scroll">
-                    <p class="text-gold text-xs uppercase tracking-[0.25em] font-semibold mb-3">Qué hacemos</p>
-                    <h1 class="text-4xl md:text-5xl font-merriweather font-black text-white mb-6">
-                        Cinco sistemas,<br><span class="text-gold">una solución integral</span>
-                    </h1>
-                    <p class="text-gray-400 text-lg max-w-xl leading-relaxed">
-                        Estructuras jurídicas, fiscales, contables y patrimoniales interconectadas para ordenar, proteger y construir.
-                    </p>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="animate-on-scroll">
+                        <p class="text-gold text-xs uppercase tracking-[0.25em] font-semibold mb-3" data-i18n="servicios.whatWeDo">Qué hacemos</p>
+                        <h1 class="text-4xl md:text-5xl font-merriweather font-black text-white mb-6">
+                            <span data-i18n="servicios.heroTitle">Cinco sistemas,</span><br><span class="text-gold" data-i18n="servicios.heroSub">una solución integral</span>
+                        </h1>
+                        <p class="text-gray-400 text-lg max-w-xl leading-relaxed" data-i18n="servicios.heroDesc">
+                            Estructuras jurídicas, fiscales, contables y patrimoniales interconectadas para ordenar, proteger y construir.
+                        </p>
+                    </div>
+                    <div class="animate-on-scroll relative aspect-[4/3] rounded-2xl overflow-hidden">
+                        <img src="fondo2.jpg" alt="Servicios MM Consultores" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -191,22 +197,21 @@
                                         <span class="iconify text-gold" data-icon="mdi:scale-balance" data-width="24"></span>
                                     </div>
                                     <div>
-                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white">Sistema Jurídico–Patrimonial</h2>
-                                        <p class="text-gold font-medium text-sm mt-0.5">Protegemos personas, familias y patrimonios desde la raíz legal del conflicto.</p>
+                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white" data-i18n="s1.title">Sistema Jurídico–Patrimonial</h2>
+                                        <p class="text-gold font-medium text-sm mt-0.5" data-i18n="s1.tagline">Protegemos personas, familias y patrimonios desde la raíz legal del conflicto.</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-300 leading-relaxed mb-5 text-justify">
-                                    Este sistema integra el análisis y atención de asuntos civiles, familiares, agrarios, mercantiles y penales estratégicos, siempre considerando el impacto económico, patrimonial y humano de cada decisión.
-                                </p>
+                                <p class="text-gray-300 leading-relaxed mb-5 text-justify" data-i18n="s1.desc">Este sistema integra el análisis y atención de asuntos civiles, familiares, agrarios, mercantiles y penales estratégicos, siempre considerando el impacto económico, patrimonial y humano de cada decisión.</p>
                                 <ul class="space-y-1.5 text-gray-400 text-sm">
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Derecho civil y patrimonial estratégico</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Derecho familiar con enfoque patrimonial</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Asuntos agrarios y regularización de tierras</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Derecho mercantil y contratos</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Penal patrimonial y empresarial</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s1.l1">Derecho civil y patrimonial estratégico</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s1.l2">Derecho familiar con enfoque patrimonial</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s1.l3">Asuntos agrarios y regularización de tierras</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s1.l4">Derecho mercantil y contratos</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s1.l5">Penal patrimonial y empresarial</span></li>
                                 </ul>
                             </div>
                         </div>
+                        <a href="juridico-patrimonial.html" class="inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline mt-4"><span data-i18n="services.viewPage">Ver página completa</span> <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span></a>
                     </article>
 
                     <!-- Sistema Fiscal-Contable-Administrativo -->
@@ -219,22 +224,21 @@
                                         <span class="iconify text-gold" data-icon="mdi:calculator" data-width="24"></span>
                                     </div>
                                     <div>
-                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white">Sistema Fiscal–Contable–Administrativo</h2>
-                                        <p class="text-gold font-medium text-sm mt-0.5">Convertimos la contabilidad y la fiscalidad en herramientas de control y prevención, no en fuentes de riesgo.</p>
+                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white" data-i18n="s2.title">Sistema Fiscal–Contable–Administrativo</h2>
+                                        <p class="text-gold font-medium text-sm mt-0.5" data-i18n="s2.tagline">Convertimos la contabilidad y la fiscalidad en herramientas de control y prevención, no en fuentes de riesgo.</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-300 leading-relaxed mb-5 text-justify">
-                                    Este sistema está diseñado para ordenar la operación fiscal y administrativa de personas físicas y morales, anticipar contingencias y defender estructuras ante autoridades.
-                                </p>
+                                <p class="text-gray-300 leading-relaxed mb-5 text-justify" data-i18n="s2.desc">Este sistema está diseñado para ordenar la operación fiscal y administrativa de personas físicas y morales, anticipar contingencias y defender estructuras ante autoridades.</p>
                                 <ul class="space-y-1.5 text-gray-400 text-sm">
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Contabilidad estratégica y análisis financiero</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Planeación fiscal lícita</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Regularización fiscal y administrativa</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Defensa fiscal y administrativa ante autoridades</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Cumplimiento normativo integral</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s2.l1">Contabilidad estratégica y análisis financiero</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s2.l2">Planeación fiscal lícita</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s2.l3">Regularización fiscal y administrativa</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s2.l4">Defensa fiscal y administrativa ante autoridades</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s2.l5">Cumplimiento normativo integral</span></li>
                                 </ul>
                             </div>
                         </div>
+                        <a href="fiscal-contable-administrativo.html" class="inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline mt-4"><span data-i18n="services.viewPage">Ver página completa</span> <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span></a>
                     </article>
 
                     <!-- Sistema Empresarial-Corporativo -->
@@ -247,21 +251,20 @@
                                         <span class="iconify text-gold" data-icon="mdi:briefcase" data-width="24"></span>
                                     </div>
                                     <div>
-                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white">Sistema Empresarial–Corporativo</h2>
-                                        <p class="text-gold font-medium text-sm mt-0.5">Diseñamos empresas que pueden crecer sin colapsar jurídicamente.</p>
+                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white" data-i18n="s3.title">Sistema Empresarial–Corporativo</h2>
+                                        <p class="text-gold font-medium text-sm mt-0.5" data-i18n="s3.taglineFull">Diseñamos empresas que pueden crecer sin colapsar jurídicamente.</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-300 leading-relaxed mb-5 text-justify">
-                                    Acompañamos a empresarios y organizaciones desde su constitución hasta su consolidación, estructurando decisiones clave que impactan su estabilidad y crecimiento.
-                                </p>
+                                <p class="text-gray-300 leading-relaxed mb-5 text-justify" data-i18n="s3.desc">Acompañamos a empresarios y organizaciones desde su constitución hasta su consolidación, estructurando decisiones clave que impactan su estabilidad y crecimiento.</p>
                                 <ul class="space-y-1.5 text-gray-400 text-sm">
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Constitución y reestructura de sociedades</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Contratos estratégicos y gobierno corporativo</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Blindaje patrimonial del empresario</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Fusiones, adquisiciones y reorganizaciones</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s3.l1">Constitución y reestructura de sociedades</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s3.l2">Contratos estratégicos y gobierno corporativo</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s3.l3">Blindaje patrimonial del empresario</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s3.l4">Fusiones, adquisiciones y reorganizaciones</span></li>
                                 </ul>
                             </div>
                         </div>
+                        <a href="empresarial-corporativo.html" class="inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline mt-4"><span data-i18n="services.viewPage">Ver página completa</span> <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span></a>
                     </article>
 
                     <!-- Sistema Inmobiliario y de Desarrollo -->
@@ -274,22 +277,21 @@
                                         <span class="iconify text-gold" data-icon="mdi:domain" data-width="24"></span>
                                     </div>
                                     <div>
-                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white">Sistema Inmobiliario y de Desarrollo</h2>
-                                        <p class="text-gold font-medium text-sm mt-0.5">No vendemos inmuebles. Blindamos operaciones inmobiliarias.</p>
+                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white" data-i18n="s4.title">Sistema Inmobiliario y de Desarrollo</h2>
+                                        <p class="text-gold font-medium text-sm mt-0.5" data-i18n="s4.tagline">No vendemos inmuebles. Blindamos operaciones inmobiliarias.</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-300 leading-relaxed mb-5 text-justify">
-                                    Este sistema integra el derecho, la fiscalidad y la estrategia patrimonial para asegurar operaciones inmobiliarias sólidas y desarrollos viables.
-                                </p>
+                                <p class="text-gray-300 leading-relaxed mb-5 text-justify" data-i18n="s4.desc">Este sistema integra el derecho, la fiscalidad y la estrategia patrimonial para asegurar operaciones inmobiliarias sólidas y desarrollos viables.</p>
                                 <ul class="space-y-1.5 text-gray-400 text-sm">
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Regularización de inmuebles</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Escrituración y formalización legal</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Análisis jurídico de compraventas</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Estructuración de desarrollos inmobiliarios</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Asesoría integral en bienes raíces</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s4.l1">Regularización de inmuebles</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s4.l2">Escrituración y formalización legal</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s4.l3">Análisis jurídico de compraventas</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s4.l4">Estructuración de desarrollos inmobiliarios</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s4.l5">Asesoría integral en bienes raíces</span></li>
                                 </ul>
                             </div>
                         </div>
+                        <a href="inmobiliario-desarrollo.html" class="inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline mt-4"><span data-i18n="services.viewPage">Ver página completa</span> <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span></a>
                     </article>
 
                     <!-- Sistema de Defensa y Contención -->
@@ -302,27 +304,26 @@
                                         <span class="iconify text-gold" data-icon="mdi:gavel" data-width="24"></span>
                                     </div>
                                     <div>
-                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white">Sistema de Defensa y Contención</h2>
-                                        <p class="text-gold font-medium text-sm mt-0.5">Cuando el conflicto existe, la estrategia marca la diferencia.</p>
+                                        <h2 class="font-merriweather font-bold text-xl md:text-2xl text-white" data-i18n="s5.title">Sistema de Defensa y Contención</h2>
+                                        <p class="text-gold font-medium text-sm mt-0.5" data-i18n="s5.tagline">Cuando el conflicto existe, la estrategia marca la diferencia.</p>
                                     </div>
                                 </div>
-                                <p class="text-gray-300 leading-relaxed mb-5 text-justify">
-                                    Este sistema se activa cuando ya existe una contingencia legal, fiscal o administrativa, enfocándose en la contención de riesgos y la defensa técnica especializada.
-                                </p>
+                                <p class="text-gray-300 leading-relaxed mb-5 text-justify" data-i18n="s5.desc">Este sistema se activa cuando ya existe una contingencia legal, fiscal o administrativa, enfocándose en la contención de riesgos y la defensa técnica especializada.</p>
                                 <ul class="space-y-1.5 text-gray-400 text-sm">
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Defensa fiscal y administrativa</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Litigio estratégico</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Penal empresarial y patrimonial</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>Representación ante autoridades</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s5.l1">Defensa fiscal y administrativa</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s5.l2">Litigio estratégico</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s5.l3">Penal empresarial y patrimonial</span></li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span><span data-i18n="s5.l4">Representación ante autoridades</span></li>
                                 </ul>
                             </div>
                         </div>
+                        <a href="defensa-contencion.html" class="inline-flex items-center gap-2 text-gold text-sm font-medium hover:underline mt-4"><span data-i18n="services.viewPage">Ver página completa</span> <span class="iconify" data-icon="mdi:arrow-right" data-width="16"></span></a>
                     </article>
                 </div>
 
                 <div class="mt-16 animate-on-scroll">
                     <a href="index.html#contacto" class="inline-flex items-center gap-3 text-gold font-medium group">
-                        <span>Contactar</span>
+                        <span data-i18n="servicios.contact">Contactar</span>
                         <span class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
                             <span class="iconify text-gold" data-icon="mdi:arrow-right" data-width="18"></span>
                         </span>
@@ -339,19 +340,18 @@
                 <!-- Columna 1: Logo y descripción -->
                 <div class="md:col-span-2">
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="logo.png" alt="MM Consultores" class="h-16 w-auto brightness-0 invert">
+                        <img src="logo.png?v=2" alt="MM Consultores" class="h-16 w-auto">
                     </div>
                     <h3 class="text-white font-merriweather font-bold text-xl mb-4 uppercase">MM Consultores & Auditores, S.C.</h3>
-                    <p class="text-gray-400 leading-relaxed mb-6">
-                        Soluciones jurídicas, fiscales y corporativas con enfoque estratégico.
-                        Años de experiencia profesional respaldando el crecimiento de empresas y familias.
+                    <p class="text-gray-400 leading-relaxed mb-6" data-i18n="footer.desc">
+                        Soluciones jurídicas, fiscales y corporativas con enfoque estratégico. Años de experiencia profesional respaldando el crecimiento de empresas y familias.
                     </p>
                     <div class="flex gap-4">
                         <a href="https://wa.me/5213221201008" target="_blank"
                             class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center hover:bg-gold transition-all duration-300 hover:scale-110">
                             <span class="iconify text-gold hover:text-dark" data-icon="mdi:whatsapp" data-width="20"></span>
                         </a>
-                        <a href="mailto:mm.consultores@hotmail.com"
+                        <a href="mailto:mmconsultoresyauditores@gmail.com"
                             class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center hover:bg-gold transition-all duration-300 hover:scale-110">
                             <span class="iconify text-gold hover:text-dark" data-icon="mdi:email" data-width="20"></span>
                         </a>
@@ -364,65 +364,41 @@
 
                 <!-- Columna 2: Navegación -->
                 <div>
-                    <h4 class="text-white font-bold mb-6 text-lg">Navegación</h4>
+                    <h4 class="text-white font-bold mb-6 text-lg" data-i18n="footer.nav">Navegación</h4>
                     <ul class="space-y-3">
-                        <li>
-                            <a href="index.html"
-                                class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2">
-                                <span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span>
-                                Inicio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.html#acerca"
-                                class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2">
-                                <span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span>
-                                Nosotros
-                            </a>
-                        </li>
-                        <li>
-                            <a href="servicios.html"
-                                class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2">
-                                <span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span>
-                                Servicios
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.html#contacto"
-                                class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2">
-                                <span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span>
-                                Contacto
-                            </a>
-                        </li>
+                        <li><a href="index.html" class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"><span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span><span data-i18n="nav.home">Inicio</span></a></li>
+                        <li><a href="index.html#acerca" class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"><span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span><span data-i18n="nav.about">Nosotros</span></a></li>
+                        <li><a href="servicios.html" class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"><span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span><span data-i18n="nav.services">Servicios</span></a></li>
+                        <li><a href="index.html#contacto" class="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center gap-2"><span class="iconify" data-icon="mdi:chevron-right" data-width="16"></span><span data-i18n="nav.contact">Contacto</span></a></li>
                     </ul>
                 </div>
 
                 <!-- Columna 3: Contacto -->
                 <div>
-                    <h4 class="text-white font-bold mb-6 text-lg">Contacto</h4>
+                    <h4 class="text-white font-bold mb-6 text-lg" data-i18n="footer.contact">Contacto</h4>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
                             <span class="iconify text-gold mt-1" data-icon="mdi:phone" data-width="20"></span>
                             <div>
-                                <p class="text-sm text-gray-500">Teléfono</p>
+                                <p class="text-sm text-gray-500" data-i18n="footer.phone">Teléfono</p>
                                 <a href="tel:3221201008" class="text-gray-300 hover:text-gold transition-colors">322 120 1008</a>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="iconify text-gold mt-1" data-icon="mdi:email" data-width="20"></span>
                             <div>
-                                <p class="text-sm text-gray-500">Email</p>
-                                <a href="mailto:mm.consultores@hotmail.com"
-                                    class="text-gray-300 hover:text-gold transition-colors break-all text-sm">mm.consultores@hotmail.com</a>
+                                <p class="text-sm text-gray-500" data-i18n="contact.email">Email</p>
+                                <a href="mailto:mmconsultoresyauditores@gmail.com"
+                                    class="text-gray-300 hover:text-gold transition-colors break-all text-sm">mmconsultoresyauditores@gmail.com</a>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="iconify text-gold mt-1" data-icon="mdi:map-marker" data-width="20"></span>
                             <div>
-                                <p class="text-sm text-gray-500">Ubicación</p>
+                                <p class="text-sm text-gray-500" data-i18n="footer.location">Ubicación</p>
                                 <a href="https://maps.app.goo.gl/kLcsHUrP59XpQ8Aq6" target="_blank" rel="noopener noreferrer"
                                     class="text-gray-300 hover:text-gold transition-colors flex items-center gap-1">
-                                    Ver en mapa
+                                    <span data-i18n="footer.viewMap">Ver en mapa</span>
                                     <span class="iconify" data-icon="mdi:open-in-new" data-width="14"></span>
                                 </a>
                             </div>
@@ -434,16 +410,16 @@
             <!-- Separador -->
             <div class="border-t border-gray-700 pt-8 mt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-sm text-gray-500 text-center md:text-left">© 2026 MM Consultores & Auditores, S.C. · Todos los derechos reservados</p>
+                    <p class="text-sm text-gray-500 text-center md:text-left" data-i18n="footer.rights">© 2026 MM Consultores & Auditores, S.C. · Todos los derechos reservados</p>
                     <div class="flex items-center gap-6 text-sm text-gray-500">
-                        <a href="#" class="hover:text-gold transition-colors">Aviso de Privacidad</a>
+                        <a href="#" class="hover:text-gold transition-colors" data-i18n="footer.privacy">Aviso de Privacidad</a>
                         <span>|</span>
-                        <a href="#" class="hover:text-gold transition-colors">Términos y Condiciones</a>
+                        <a href="#" class="hover:text-gold transition-colors" data-i18n="footer.terms">Términos y Condiciones</a>
                     </div>
                 </div>
                 <div class="text-center mt-6 space-y-2">
-                    <p class="text-xs text-gray-600 italic">"Problemas complejos, soluciones estratégicas"</p>
-                    <p class="text-xs text-gray-600">© Página creada por <a href="https://solno.mx" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline transition-colors">grupo solno.mx</a></p>
+                    <p class="text-xs text-gray-600 italic" data-i18n="footer.tagline">"Problemas complejos, soluciones estratégicas"</p>
+                    <p class="text-xs text-gray-600"><span data-i18n="footer.credit">© Página creada por</span> <a href="https://solno.mx" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline transition-colors">grupo solno.mx</a></p>
                 </div>
             </div>
         </div>
@@ -463,22 +439,7 @@
         });
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
         closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
-
-        let lang = localStorage.getItem('mm-lang') || 'es';
-        function applyLang(l) {
-            lang = l;
-            localStorage.setItem('mm-lang', l);
-            document.querySelectorAll('.lang-pill button').forEach(btn => {
-                const isEs = /lang-es/.test(btn.id || '');
-                const isEn = /lang-en/.test(btn.id || '');
-                btn.classList.toggle('active', (l === 'es' && isEs) || (l === 'en' && isEn));
-            });
-        }
-        applyLang(lang);
-        ['lang-es','lang-en','lang-es-mob','lang-en-mob','lang-es-menu','lang-en-menu'].forEach(id => {
-            const btn = document.getElementById(id);
-            if (btn) btn.addEventListener('click', () => applyLang(id.includes('es') ? 'es' : 'en'));
-        });
     </script>
+    <script src="i18n.js"></script>
 </body>
 </html>
